@@ -20,6 +20,7 @@ attribute :path, :kind_of => String, :name_attribute => true
 attribute :cifs_path, :kind_of => String, :required => true
 attribute :username, :kind_of => String, :default => nil
 attribute :password, :kind_of => String, :default => nil
+attribute :domain, :kind_of => String, :default => nil
 attribute :options, :kind_of => Hash, :default => nil
 
 default_action :run
