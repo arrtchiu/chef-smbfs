@@ -14,6 +14,19 @@
 # limitations under the License.
 #
 
-package "smbfs" do
+# Copied from: https://github.com/aioi/chef-cifs/blob/master/recipes/default.rb
+
+case node['platform']
+  when 'ubuntu'
+    if node['platform_version'].to_f <= 10.04
+      pkg = 'smbfs'
+    else
+      pkg = 'cifs-utils'
+    end
+  else
+    Chef::Log.fatal("#{node['platform']} not supported")
+end
+
+package pkg do
   action :install
 end
