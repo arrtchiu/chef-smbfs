@@ -34,7 +34,7 @@ action :run do
       owner "root"
       group "root"
       mode 0600
-      content "username=#{new_resource.username}\npassword=#{new_resource.password}\n"
+      content "username=#{new_resource.username}\npassword=#{new_resource.password}\ndom=#{new_resource.domain}\n"
       action :create
     end
 
